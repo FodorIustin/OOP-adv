@@ -1,0 +1,13 @@
+<web-app>
+
+<servlet>
+		<servlet-name>laptop-servlet</servlet-name>
+		<servlet-class>com.afis.Laptop</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<url-pattern>/laptop</url-pattern>
+<servlet-name>laptop-servlet</servlet-name>
+</servlet-mapping>
+
+</web-app>
