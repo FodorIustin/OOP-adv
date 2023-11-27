@@ -1,18 +1,26 @@
 package com.work;
 
+import java.sql.Date;
+
 public class Wood {
 	
 	private int id;
 	private double height;
 	private double width;
 	private String material;
-	private String date;
-	public Wood(int id, double height, double width, String material, String date) {
+	public Date installationDate;
+	public Wood(double height, double width, String material, Date date) {
+		this.height = height;
+		this.width = width;
+		this.material = material;
+		this.installationDate = date;
+	}
+	public Wood(int id, double height, double width, String material, Date date) {
 		this.id = id;
 		this.height = height;
 		this.width = width;
 		this.material = material;
-		this.date = date;
+		this.installationDate = date;
 	}
 	public int getId() {
 		return id;
@@ -38,12 +46,13 @@ public class Wood {
 	public void setMaterial(String material) {
 		this.material = material;
 	}
-	public String getDate() {
-		return date;
+	public Date getInstallationdate() {
+		return installationDate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setInstallationdate(Date installationdate) {
+		this.installationDate = installationdate;
 	}
+	
 	
 	
 }

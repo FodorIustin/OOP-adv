@@ -22,16 +22,16 @@
 		<th>Material</th>
 		<th>InstalaltionDate</th>
 	</tr>
-	<%for(Woods w : woods){ %>
+	<%for(Wood d : woods){ %>
 	<tr>
-		<td> <a href="doors/<%=w.getId()%>"><%=w.getId() %></a></td>
-		<td><%=w.getHeight()%></td>
-		<td><%=w.getWidth()%></td>
-		<td><%=w.getMaterial()%></td>
-		<td><%=w.getDate()%></td>
+		<td> <a href="doors/<%=d.getId()%>"><%=d.getId() %></a></td>
+		<td><%=d.getHeight()%></td>
+		<td><%=d.getWidth()%></td>
+		<td><%=d.getMaterial()%></td>
+		<td><%=d.getInstallationdate()%></td>
 	</tr>
 	<%} %>
 	</table>
-
+		<p><a href="doors/create">Create</a></p>
 </body>
 </html>

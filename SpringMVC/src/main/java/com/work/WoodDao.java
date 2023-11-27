@@ -11,9 +11,10 @@ public class WoodDao {
 	
 	
 	  public Wood getById(int id) throws SQLException, ClassNotFoundException {
-	  Connection con = DBHelper.getConnection(); String query =
-	  "select * from doors where id =?"; PreparedStatement ps =
-	  con.prepareStatement(query); ps.setInt(1, id);
+	  Connection con = DBHelper.getConnection(); 
+	  String query = "select * from doors where id =?"; 
+	  PreparedStatement ps = con.prepareStatement(query); 
+	  ps.setInt(1, id);
 	  
 	  ResultSet rs = ps.executeQuery();
 	  
@@ -21,7 +22,7 @@ public class WoodDao {
 				rs.getInt("height"),
 				rs.getInt("width"),
 				rs.getString("material"),
-				rs.getString("date")); DBHelper.closeConnection();
+				rs.getDate("installationDate")); DBHelper.closeConnection();
 	  return w; } DBHelper.closeConnection(); return null; }
 	 
 	public ArrayList<Wood> getAllWoods() throws SQLException {
@@ -35,11 +36,23 @@ public class WoodDao {
 					rs.getInt("height"),
 					rs.getInt("width"),
 					rs.getString("material"),
-					rs.getString("date"));
+					rs.getDate("installationDate"));
 			woods.add(w);
 		}
 		con.close();
 		return woods;
 		
 	}
+	public void insertDoor(Wood wood) throws SQLException {
+		Connection con = DBHelper.getConnection();
+		String query = "insert into doors (height, width,material,installationDate) values (?,?,?,?)";
+		PreparedStatement ps=con.prepareStatement(query);
+		ps.setDouble(1, wood.getHeight());
+		ps.setDouble(2, wood.getWidth());
+		ps.setString(3, wood.getMaterial());
+		ps.setDate(4, wood.getInstallationdate());
+		ps.executeUpdate();
+	}
+	
+	
 }
